@@ -1,9 +1,3 @@
----
-title: 主导航
-layout: home
-has_toc: true
----
-{% include toc.html html=content %}
 
 本页面将是未来的wiki主界面，它将链接至各个一级标题页面。在Wiki筹建阶段，该页面可能频繁变动。
 
