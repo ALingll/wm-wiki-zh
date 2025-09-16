@@ -1,12 +1,9 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-# GitHub Pages 及官方插件
-gem "github-pages", group: :jekyll_plugins
+gem "jekyll", "~> 4.4.1" # installed by `gem jekyll`
+# gem "webrick"        # required when using Ruby >= 3 and Jekyll <= 4.2.2
 
-# Just the Docs 主题
-gem "just-the-docs", "0.10.1", group: :jekyll_plugins
+gem "just-the-docs", "0.10.1" # pinned to the current release
+# gem "just-the-docs"        # always download the latest release
 
-# TOC 插件
-gem "jekyll-toc", "~> 0.19.0", group: :jekyll_plugins
-
-# 你可以添加其它必要插件，也放在 group: :jekyll_plugins
+gem 'jekyll-toc'

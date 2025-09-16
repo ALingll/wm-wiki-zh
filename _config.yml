@@ -2,10 +2,10 @@ title: WorldMachine wiki
 description: Unofficial WorldMachine wiki in Chinese
 theme: just-the-docs
 
-url: https://just-the-docs.github.io
+url: https://ALingll.github.io/wm-wiki-zh
 
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+  Template Repository: https://github.com/ALingll/wm-wiki-zh
 
 # 开启搜索
 search_enabled: true
