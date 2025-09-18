@@ -173,19 +173,19 @@ Advanced Perlin{
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1em;">
 
   <div style="flex: 0 0 48%; text-align: center; margin-bottom: 1em;">
-    <img src="../../../../assets/images/advanced_perlin.gallery1.png" alt="图片1" style="width: 100%; max-width: 512px; height: auto;">
+    <img src="{{site.baseurl}}/assets/images/advanced_perlin.gallery1.png" alt="图片1" style="width: 100%; max-width: 512px; height: auto;">
   </div>
 
   <div style="flex: 0 0 48%; text-align: center; margin-bottom: 1em;">
-    <img src="../../../../assets/images/advanced_perlin.gallery2.png" alt="图片2" style="width: 100%; max-width: 512px; height: auto;">
+    <img src="{{site.baseurl}}/assets/images/advanced_perlin.gallery2.png" alt="图片2" style="width: 100%; max-width: 512px; height: auto;">
   </div>
 
   <div style="flex: 0 0 48%; text-align: center; margin-bottom: 1em;">
-    <img src="../../../../assets/images/advanced_perlin.gallery3.png" alt="图片3" style="width: 100%; max-width: 512px; height: auto;">
+    <img src="{{site.baseurl}}/assets/images/advanced_perlin.gallery3.png" alt="图片3" style="width: 100%; max-width: 512px; height: auto;">
   </div>
 
   <div style="flex: 0 0 48%; text-align: center; margin-bottom: 1em;">
-    <img src="../../../../assets/images/advanced_perlin.gallery4.png" alt="图片4" style="width: 100%; max-width: 512px; height: auto;">
+    <img src="{{site.baseurl}}/assets/images/advanced_perlin.gallery4.png" alt="图片4" style="width: 100%; max-width: 512px; height: auto;">
   </div>
 
 </div>
