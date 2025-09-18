@@ -25,6 +25,12 @@ toc:
   min_level: 2
   max_level: 3
 
+keep_files:
+  - assets/images
+
+include:
+  - assets/images
+
 sass:
   style: compressed
 
