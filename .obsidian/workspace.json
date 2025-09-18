@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/zh/concept/【Concept】工作流 ~ Workflow.md",
+                "file": "docs/zh/device/generator/【Device】Advanced Perlin.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "【Concept】工作流 ~ Workflow"
+              "title": "【Device】Advanced Perlin"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "path:\"assets/images/advanced-perlin/\" ",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/zh/concept/【Concept】工作流 ~ Workflow.md",
+                "file": "docs/zh/device/generator/【Device】Advanced Perlin.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "【Concept】工作流 ~ Workflow 的反向链接列表"
+              "title": "【Device】Advanced Perlin 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/zh/concept/【Concept】工作流 ~ Workflow.md",
+                "file": "docs/zh/device/generator/【Device】Advanced Perlin.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "【Concept】工作流 ~ Workflow 的出链列表"
+              "title": "【Device】Advanced Perlin 的出链列表"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/zh/concept/【Concept】工作流 ~ Workflow.md",
+                "file": "docs/zh/device/generator/【Device】Advanced Perlin.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "【Concept】工作流 ~ Workflow 的大纲"
+              "title": "【Device】Advanced Perlin 的大纲"
             }
           }
         ]
@@ -171,28 +171,38 @@
   },
   "active": "40ba5ac073262898",
   "lastOpenFiles": [
+    "docs/zh/device/generator/【Nevigation】生成器 ~ Generator.md",
+    "_site/zh/device/generator/index.html",
+    "docs/zh/device/generator/【Device】Advanced Perlin.md",
+    "docs/zh/device/【Nevigation】设备 ~ Device.md",
+    "_site/zh/concept/device/generator/index.html",
+    "_site/zh/concept/device/generator",
+    "_site/docs/zh/device/generator/【Nevigation】生成器 ~ Generator.html",
+    "_site/zh/device/index.html",
+    "_site/docs/zh/device/generator/【Nevigation】生成器 ~ Generator.md",
+    "_site/docs/zh/device/generator/未命名.md",
+    "_site/docs/zh/device/generator",
+    "_site/zh/device/generator/advanced-perlin.html",
+    "_site/zh/device/generator",
+    "_site/zh/device",
+    "docs/zh/concept/【Concept】工作流 ~ Workflow.md",
+    "_site/assets/images/advanced-perlin/gallery4.png",
+    "assets/images/advanced-perlin/gallery4.png",
+    "_site/assets/images/advanced-perlin/gallery3.png",
+    "assets/images/advanced-perlin/gallery3.png",
+    "_site/assets/images/advanced-perlin/gallery2.png",
+    "assets/images/advanced-perlin/gallery2.png",
+    "_site/assets/images/advanced-perlin/gallery1.png",
+    "assets/images/advanced-perlin/gallery1.png",
+    "_site/assets/images/advanced-perlin/World_Machine64_foQJ5GacNe.png",
+    "assets/images/advanced-perlin/World_Machine64_foQJ5GacNe.png",
+    "_site/assets/images/advanced-perlin",
+    "docs/zh/concept/【Nevigation】概念 ~ Concept.md",
     "docs/zh/concept/【Concept】设备 ~ Device.md",
     "docs/zh/concept/【Concept】fBM 分型布朗运动 ~ fBm the Fractional Brownian Motion.md",
-    "docs/zh/concept/【Nevigation】概念 ~ Concept.md",
-    "docs/zh/device/generator/【Device】Advanced Perlin.md",
-    "_site/docs/zh/device/generator/【Device】Advanced Perlin.html",
-    "_site/docs/zh/device/generator",
-    "docs/zh/device/generator",
-    "docs/zh/concept/【Concept】工作流 ~ Workflow.md",
-    "_site/assets/images/default_workflow.png",
-    "_site/assets/images/9706b5f4-1b62-4920-80c6-bb3800d08f78.png",
-    "assets/images/default_workflow.png",
-    "_site/zh/concept/workflow/index.html",
-    "_site/zh/concept/device/index.html",
-    "_site/zh/concept/workflow",
-    "_site/zh/concept/device",
-    "_site/zh/concept",
     "{{.md",
     "_site/{{.md",
-    "docs/zh/device/【Nevigation】设备 ~ Device.md",
     "docs/zh/【Navigation】主导航 ~ Main Navigation.md",
-    "_site/zh/device/index.html",
-    "_site/zh/device",
     "_site/docs/zh/concept/【Concept】工作流 ~ Workflow.md",
     "_site/docs/zh/concept/未命名.md",
     "index.md",

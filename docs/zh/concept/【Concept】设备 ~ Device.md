@@ -14,7 +14,9 @@ permalink: /zh/concept/device/
 
 **高级参数（Advanced Parameters）** 是默认不显示在属性面板中的参数，高级参数显示仅当属性面板中的“显示高级参数”选项被勾选。
 
-**内置设备（Internal Devices）** 是WM内置提供的设备。**自定义设备**是用户封装的，或是第三方提供的设备，例如宏、Code、由插件提供的设备（过时）等。
+**内置设备（Internal Devices）** 是WM内置提供的设备。**自定义设备**是用户封装的，或是第三方提供的设备，例如宏、<span style="display:inline-block; border:1px solid #ccc; padding:2px 6px; border-radius:4px; background-color:#f9f9f9;">
+  代码&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #6a9955;">HR-4041 起</span>
+</span>、由插件提供的设备（过时）等。
 
 通常来说，数据从设备的左侧流入，经过处理后，结果从右侧流出。有些设备仅有输出、没有输入，它们通常从无开始生成一个新的数据，或是指定文件系统中的一个数据源读入到工作流中；有些设备仅有输入、没有输出，它们通常是将工作流中的数据写入文件系统；还有些特殊的设备，它们既没有输入也没有输出，它们通常应用于在一些特殊场景中进行设置。
 

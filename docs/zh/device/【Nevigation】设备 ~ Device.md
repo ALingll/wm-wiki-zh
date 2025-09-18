@@ -2,6 +2,7 @@
 title: 设备
 layout: home
 has_toc: false
+permalink: /zh/device/
 ---
 # 概念 - Concept
 ---

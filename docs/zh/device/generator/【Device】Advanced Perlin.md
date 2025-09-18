@@ -1,17 +1,45 @@
 ---
 title: Advanced Perlin
 has_toc: true
-parent: 设备
+parent: 生成器
 layout: home
+permalink: /zh/device/generator/advanced-perlin
 ---
-
-
 # Advanced Perlin - 高级柏林噪波
 
+> A highly configurable perlin noise generator.
+> 一个高度可配置的柏林噪波生成器。
 
+**Advanced Perlin** 是 WorldMachine 中一个高度可定制的分形噪声生成器，作为基础地形（base terrain）的常用起点。该设备基于 Perlin 与分形噪声的原理，将多个尺度（octaves）的噪声层叠合成最终高度场，并允许对每一层的类型与合成方式进行细粒度控制，从而生成从大尺度地形到细微纹理的多种地貌形式。Advanced Perlin 不仅提供传统的尺度/持久性控制，还支持外部“形状引导”（Shape Guide）与基于场的空间参数控制，以便在空间上对噪声特性进行局部调节。
+
+设备的输入端口包含遮罩输入（用于按区域限定噪声影响）、以及可选的 **Shape Guide** 输入（用于控制噪声的宏观形状）。同时，高级参数还支持通过参数端口或引导贴图逐像素控制持久性（persistence）、增益（gain）、自定义频谱（fractal profile）等，从而实现更加异质化的噪声效果。实践中，Shape Guide 常用于定义大尺度“形状”（例如岛屿轮廓、山脊走向），而噪声自身的设置则控制细节与粗糙度。
+
+Advanced Perlin 常被用作“场景第一步”：先用较低频（大尺度）设置或 Shape Guide 构建总体地形形态，再接入 Erosion（侵蚀）等滤镜以产生更真实的地貌演化效果；随后可回到本设备或其它噪声/混合设备加入局部细节。构建大型或可平铺的高度场时，应注意 Feature Scale 与项目尺寸的匹配，以及后续输出与导出（tiling / border handling）策略。社区实践表明，将 Shape Guide 与 Shapes/Mask 配合可以在控制地形位置与形态方面获得最直接、可控的结果。
 
 ---
-#### **Ports：**
+##  分形布朗运动（fBm）
+
+分形布朗运动（fractional Brownian motion, fBm）是 Mandelbrot 和 Ness 于1968年提出的随机过程模型$^{[1]}$，是一种通过迭加多层次噪波函数来生成的分形结构。它能够在视觉上呈现出自然界中常见的分形特征，例如山脉、云层和地形等。在1983年，Mandelbrot 意识到 fBm 过程的输出在视觉上与山脉崎岖轮廓相似，并首次尝试使用 fBm 创建山脉、大陆、崎岖的海岸线等自然景观$^{[2]}$。
+
+fBm 的基本构造方式是将多个频率递增、振幅递减的噪声函数按层（octaves）叠加。其一般形式为：
+
+$$
+\text{fBm}(\mathbf{x}) = \sum_{i=0}^{N-1} \; \text{noise}(2^i \mathbf{x}) \cdot \text{gain}^i
+$$
+
+其中：
+- $N$ 表示叠加的层数（octaves）。
+- $\mathbf{x}$ 表示输入坐标。
+- $\text{noise}(\cdot)$ 表示基础噪声函数，例如 Perlin 噪声。
+- $2^i$ 体现频率逐层倍增。
+- $\text{gain} \in (0,1)$ 为每层的振幅衰减因子。
+
+通过调整 `lacunarity`（频率增长因子）与 `gain`（振幅衰减因子），fBm 可以生成从光滑到粗糙的不同分形外观。典型情况下，`lacunarity` 取值大于 1，用于控制每层噪声的空间频率增加速率；而 `gain` 用于控制整体的粗糙度与细节保留程度。
+
+在 Advanced Perlin 设备中，fBm 被用于生成具有多层次的细节的噪波，它能够在保持整体连贯性的同时，引入逐层细化的纹理细节。
+
+---
+## **Ports：**
 - **Inputs**
 	- **\[Opt\] \<形状导量\>Shaping Guide (Heightfield)**
 	- **\[Opt\] \<畸变导量\>Distortion Guide (Heightfield)**
@@ -25,13 +53,13 @@ layout: home
 - **Mask**
 
 ---
-#### **Placement & Transform:**
+## **Placement & Transform:**
 - **Scope**
 - **Position**
 - **Rotation**
 
 ---
-#### **Parameters:**
+## **Parameters:**
 - **\[P\] slider : \<特征尺度\>Feature Scale : Distance{1m~1024km}**   
 	控制fBm过程中顶级噪波特征的空间尺度，数值越大，生成的地形越宽广，纹理越粗旷。
 - **dropdown : \<样式\>Style : enum{0~8}**  
@@ -106,7 +134,7 @@ layout: home
 		- **enum(4) :  \<经典\>Classical**  
 			一种类似于 Signal Level 的多尺度方法，用于 WorldMachine 的早期版本
 - **\[A U\] checkbox : \<自定义分型...\>Customize fractal... : bool**  
-	启用后，将允许用户自定义分型。在正常的分形噪波类型中，噪波的每一阶都使用相同的基函数来定义它。【Customize Fractal Profile】选项允许你为每一阶分配一个自定义类型；这可以让您产生一些非常独特的地形特征。自定义阶是从最低级别 （最大特征大小） 到最高 （最小） 创建的。
+	启用后，将允许用户自定义分型。在正常的分形噪波类型中，噪波的每一阶都使用相同的基函数来定义它。自定义频谱（Customize Fractal Profile）选项允许你为每一阶分配一个自定义类型；这可以生成一些非常独特的地形特征。自定义阶是从最低级别 （最大特征大小） 到最高 （最小） 创建的。
 - **\[A\] group : visible(Customize fractal...\==true)**  
 	- **\[U\] table : \<阶\>Octave | \<强度\>Strength | \<样式\>Style : int | int | enum**  
 		一个显示所有自定义阶的表格，其中每一行表示一个自定义阶，他们通过下述按钮添加或删除；每一行有三列：【Octave】表示当前阶序，不可编辑；【Strength】表示当前阶的作用强度，高值将为当前阶施加较高的影响程度；【Style】设置当前阶的类型。
@@ -117,7 +145,56 @@ layout: home
 	- **\[U\] button : \<全部清除\>Clear All : Action**  
 		移除所有自定义噪波阶。
 
+---
+## 缺陷性报告
+
+### 放射状伪影
+
+fBm 本质上对坐标是敏感的，当频率成倍扩展时，原点往往是所有频率层的“对齐点”。因此从原点向外的方向容易积累各层次的微弱规律性，叠加后表现为放射状的“星形伪影”。当不同 octave 完全对齐且使用相同 seed，会产生规则化的伪影，常规实现通常通过对每层偏移/重播种以打破对齐。
+
+<div style="text-align: center; max-width: 100%;">
+  <img src="../../../../assets/images/advanced-perlin/artifacts.png" alt="图片描述" style="width: min(33.333%, 512px); height: auto; display: block; margin: 0 auto;">
+  <div style="margin-top: 0.5em; font-size: 0.95em; color: #333;">fBm 产生的放射状伪影</div>
+</div>
+要产生上述图片，参考如下设置：
+```
+Advanced Perlin{
+	Feature Scale = 5km,
+	Persistence = 0.59,
+	Lacunarity = 1.4,
+	Octaves = 15
+}
+```
+在WM中，要避免这种伪影，一种方案是使用 Placement & Transform 中的 Position，将噪波偏移设置为一个较大的值，使得放射中心点远离采样区域。也可以适当调高 Lacunarity 的值，当 Lacunarity 较高时，该伪影不明显。
+
+---
+## 画廊
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1em;">
+
+  <div style="flex: 0 0 48%; text-align: center; margin-bottom: 1em;">
+    <img src="../../../../assets/images/advanced-perlin/gallery1.png" alt="图片1" style="width: 100%; max-width: 512px; height: auto;">
+  </div>
+
+  <div style="flex: 0 0 48%; text-align: center; margin-bottom: 1em;">
+    <img src="../../../../assets/images/advanced-perlin/gallery2.png" alt="图片2" style="width: 100%; max-width: 512px; height: auto;">
+  </div>
+
+  <div style="flex: 0 0 48%; text-align: center; margin-bottom: 1em;">
+    <img src="../../../../assets/images/advanced-perlin/gallery3.png" alt="图片3" style="width: 100%; max-width: 512px; height: auto;">
+  </div>
+
+  <div style="flex: 0 0 48%; text-align: center; margin-bottom: 1em;">
+    <img src="../../../../assets/images/advanced-perlin/gallery4.png" alt="图片4" style="width: 100%; max-width: 512px; height: auto;">
+  </div>
+
+</div>
 
 
+---
+## 参考文献
+
+1. Mandelbrot, Benoît B.; Van Ness, John W. *Fractional Brownian motions, fractional noises and applications*. SIAM Review, 10(4), 422–437, 1968.
+2. Mandelbrot, Benoît B. ''The Fractal Geometry of Nature''. W. H. Freeman and Company, 1982.
 
 
