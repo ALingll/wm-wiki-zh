@@ -153,7 +153,7 @@ $$
 fBm 本质上对坐标是敏感的，当频率成倍扩展时，原点往往是所有频率层的“对齐点”。因此从原点向外的方向容易积累各层次的微弱规律性，叠加后表现为放射状的“星形伪影”。当不同 octave 完全对齐且使用相同 seed，会产生规则化的伪影，常规实现通常通过对每层偏移/重播种以打破对齐。
 
 <div style="text-align: center; max-width: 100%;">
-  <img src="../../../../assets/images/advanced_perlin.artifacts.png" alt="图片描述" style="width: min(33.333%, 512px); height: auto; display: block; margin: 0 auto;">
+  <img src="{{site.baseurl}}/assets/images/advanced_perlin.artifacts.png" alt="图片描述" style="width: min(33.333%, 512px); height: auto; display: block; margin: 0 auto;">
   <div style="margin-top: 0.5em; font-size: 0.95em; color: #333;">fBm 产生的放射状伪影</div>
 </div>
 要产生上述图片，参考如下设置：
