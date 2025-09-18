@@ -187,7 +187,6 @@ Advanced Perlin{
   <div style="flex: 0 0 48%; text-align: center; margin-bottom: 1em;">
     <img src="{{site.baseurl}}/assets/images/advanced_perlin.gallery4.png" alt="图片4" style="width: 100%; max-width: 512px; height: auto;">
   </div>
-
 </div>
 
 
