@@ -96,14 +96,14 @@ $$
 	设置噪波生成高程的中位数，更改此值将生成主要位于较低或较高高程的地形。
 - **\[A\] checkbox :  \<高程控制\>Evaluation control : bool**  
 	启用后，允许用户指定噪波被钳位至特定高程范围。
-- **\[A\] group : visible(Evaluation control\==True)**  
+- **\[A\] group : visible(Evaluation control=True)**  
 	- **field :  \<低限位\>Lowest : Elevation**  
 		设置噪波影响的最低高程。
 	- **field :  \<高限位\>Highest : Elevation**  
 		设置噪波影响的最高高程。
 - **\[A\] checkbox :  \<引导输入\>Guide inputs : bool**  
 	启用后，将允许用户指定输入导量对噪波的形状、畸变、持续性进行引导的强度。
-- **\[A\] group : visible(Guide inputs\==frue)**  
+- **\[A\] group : visible(Guide inputs=frue)**  
 	- **slider : \<形状引导渐入等级\>Shapeguide lead-in level : int{1~4}**  
 		仅当形状导量输入合法时才生效。允许您设置形状导量接管的噪声阶数。较高的值仅允许较小的分形变化通过。
 	- **slider : \<畸变引导等级\>Distortion guide level : float{0~1}**  
@@ -112,7 +112,7 @@ $$
 		仅当持续导量输入合法时才生效。控制持续导量控制地形局部持续性的能力，值越高，输入值会导致的持久性差异更大。
 - **\[A\] checkbox : \<多尺度控制\>Multiscale control : bool**  
 	启用后，将允许用户设置多尺度分型参数。多尺度分形是在不同尺度上表现出不同特征的分形。通常，这是基于高程、位置或其他因素。这些往往会产生更复杂或更复杂的地形。这个概念从语言表述上来看有些抽象，因此其使用的最佳指南是实践。
-- **\[A\] group : visible(Multiscale control\==true)**  
+- **\[A\] group : visible(Multiscale control=true)**  
 	- **slider :  \<活跃度\>Activity : float{0~1}**  
 		设置应用多尺度效果的应用强度。
 	- **slider :  \<偏移量\>Offset : float{0~1}**  
@@ -135,7 +135,7 @@ $$
 			一种类似于 Signal Level 的多尺度方法，用于 WorldMachine 的早期版本
 - **\[A U\] checkbox : \<自定义分型...\>Customize fractal... : bool**  
 	启用后，将允许用户自定义分型。在正常的分形噪波类型中，噪波的每一阶都使用相同的基函数来定义它。自定义频谱（Customize Fractal Profile）选项允许你为每一阶分配一个自定义类型；这可以生成一些非常独特的地形特征。自定义阶是从最低级别 （最大特征大小） 到最高 （最小） 创建的。
-- **\[A\] group : visible(Customize fractal...\==true)**  
+- **\[A\] group : visible(Customize fractal...=true)**  
 	- **\[U\] table : \<阶\>Octave | \<强度\>Strength | \<样式\>Style : int | int | enum**  
 		一个显示所有自定义阶的表格，其中每一行表示一个自定义阶，他们通过下述按钮添加或删除；每一行有三列：【Octave】表示当前阶序，不可编辑；【Strength】表示当前阶的作用强度，高值将为当前阶施加较高的影响程度；【Style】设置当前阶的类型。
 	- **\[U\] button : \<添加阶\>+Octave : Action**  
@@ -153,7 +153,7 @@ $$
 fBm 本质上对坐标是敏感的，当频率成倍扩展时，原点往往是所有频率层的“对齐点”。因此从原点向外的方向容易积累各层次的微弱规律性，叠加后表现为放射状的“星形伪影”。当不同 octave 完全对齐且使用相同 seed，会产生规则化的伪影，常规实现通常通过对每层偏移/重播种以打破对齐。
 
 <div style="text-align: center; max-width: 100%;">
-  <img src="/assets/images/advanced_perlin.artifacts.png" alt="图片描述" style="width: min(33.333%, 512px); height: auto; display: block; margin: 0 auto;">
+  <img src="{{site.baseurl}}/assets/images/advanced_perlin.artifacts.png" alt="图片描述" style="width: min(33.333%, 512px); height: auto; display: block; margin: 0 auto;">
   <div style="margin-top: 0.5em; font-size: 0.95em; color: #333;">fBm 产生的放射状伪影</div>
 </div>
 要产生上述图片，参考如下设置：
@@ -168,24 +168,30 @@ Advanced Perlin{
 在WM中，要避免这种伪影，一种方案是使用 Placement & Transform 中的 Position，将噪波偏移设置为一个较大的值，使得放射中心点远离采样区域。也可以适当调高 Lacunarity 的值，当 Lacunarity 较高时，该伪影不明显。
 
 ---
+## 历史版本
+
+- AL
+- LTE Standard
+
+---
 ## 画廊
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1em;">
 
   <div style="flex: 0 0 48%; text-align: center; margin-bottom: 1em;">
-    <img src="/assets/images/advanced_perlin.gallery1.png" alt="图片1" style="width: 100%; max-width: 512px; height: auto;">
+    <img src="{{site.baseurl}}/assets/images/advanced_perlin.gallery1.png" alt="图片1" style="width: 100%; max-width: 512px; height: auto;">
   </div>
 
   <div style="flex: 0 0 48%; text-align: center; margin-bottom: 1em;">
-    <img src="/assets/images/advanced_perlin.gallery2.png" alt="图片2" style="width: 100%; max-width: 512px; height: auto;">
+    <img src="{{site.baseurl}}/assets/images/advanced_perlin.gallery2.png" alt="图片2" style="width: 100%; max-width: 512px; height: auto;">
   </div>
 
   <div style="flex: 0 0 48%; text-align: center; margin-bottom: 1em;">
-    <img src="/assets/images/advanced_perlin.gallery3.png" alt="图片3" style="width: 100%; max-width: 512px; height: auto;">
+    <img src="{{site.baseurl}}/assets/images/advanced_perlin.gallery3.png" alt="图片3" style="width: 100%; max-width: 512px; height: auto;">
   </div>
 
   <div style="flex: 0 0 48%; text-align: center; margin-bottom: 1em;">
-    <img src="/assets/images/advanced_perlin.gallery4.png" alt="图片4" style="width: 100%; max-width: 512px; height: auto;">
+    <img src="{{site.baseurl}}/assets/images/advanced_perlin.gallery4.png" alt="图片4" style="width: 100%; max-width: 512px; height: auto;">
   </div>
 </div>
 

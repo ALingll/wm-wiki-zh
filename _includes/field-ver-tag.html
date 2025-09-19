@@ -1,0 +1,33 @@
+{% assign str = include.field %}
+{% assign indent = 0 %}
+{% assign idx = 1 %}
+{% assign max_check = str | size %}
+
+{% for _ in (1..max_check) %}
+  {% assign four_spaces = str | slice: idx, 4 %}
+  {% assign char = str | slice: idx, 1 %}
+
+  {% if char == "	" %}
+    {% assign indent = indent | plus: 1 %}
+    {% assign idx = idx | plus: 1 %}
+  {% elsif four_spaces == "    " %}
+    {% assign indent = indent | plus: 1 %}
+    {% assign idx = idx | plus: 4 %}
+  {% else %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% for i in (1..indent) %}
+  {% assign str = str | replace: "	-", "-" | replace: "    -", "-" %}
+{% endfor %}
+
+<div style="display:flex; justify-content:space-between; align-items:flex-start; padding:4px 8px; border:1px solid #ccc; background-color:#f9f9f9; width:100%; box-sizing:border-box;">
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column; overflow-wrap:break-word; margin-right:8px; margin-left:calc({{ indent | default:0 }} * 2ch);">
+    {{ str
+        | markdownify }}
+  </div>
+  <div style="flex:0 0 auto; white-space:nowrap; color:#6a9955; align-self:center;">
+    {{ include.ver }}
+  </div>
+</div>
