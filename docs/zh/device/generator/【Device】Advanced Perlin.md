@@ -10,9 +10,9 @@ permalink: /zh/device/generator/advanced-perlin
 > A highly configurable perlin noise generator.
 > 一个高度可配置的柏林噪波生成器。
 
-**Advanced Perlin** 是 WorldMachine 中一个高度可定制的分形噪声生成器，作为基础地形（base terrain）的常用起点。该设备基于 Perlin 与分形噪声的原理，将多个尺度（octaves）的噪声层叠合成最终高度场，并允许对每一层的类型与合成方式进行细粒度控制，从而生成从大尺度地形到细微纹理的多种地貌形式。Advanced Perlin 不仅提供传统的尺度/持久性控制，还支持外部“形状引导”（Shape Guide）与基于场的空间参数控制，以便在空间上对噪声特性进行局部调节。
+**Advanced Perlin** 是一个高度可定制的分形噪声生成器，作为基础地形（base terrain）的常用起点。该设备基于 Perlin 与分形噪声的原理，将多个尺度（octaves）的噪声层叠合成最终高度场，并允许对每一层的类型与合成方式进行细粒度控制，从而生成从大尺度地形到细微纹理的多种地貌形式。Advanced Perlin 不仅提供传统的尺度/持久性控制，还支持外部“形状引导”（Shape Guide）与基于场的空间参数控制，以便在空间上对噪声特性进行局部调节。
 
-设备的输入端口包含遮罩输入（用于按区域限定噪声影响）、以及可选的 **Shape Guide** 输入（用于控制噪声的宏观形状）。同时，高级参数还支持通过参数端口或引导贴图逐像素控制持久性（persistence）、增益（gain）、自定义频谱（fractal profile）等，从而实现更加异质化的噪声效果。实践中，Shape Guide 常用于定义大尺度“形状”（例如岛屿轮廓、山脊走向），而噪声自身的设置则控制细节与粗糙度。
+设备的输入端口包含遮罩输入（用于按区域限定噪声影响）、以及可选的 **Shape Guide** 输入（用于控制噪声的宏观形状）。同时，高级参数还支持通过参数端口或引导贴图逐像素控制持久性（persistence）、增益（gain）、自定义频谱（fractal profile）等，从而实现更加异质化的噪声效果。实践中，Shape Guide 常用于定义大尺度“形状”（例如岛屿轮廓、山脊走向），而噪声自身的设置则控制细节与粗糙度
 
 Advanced Perlin 常被用作“场景第一步”：先用较低频（大尺度）设置或 Shape Guide 构建总体地形形态，再接入 Erosion（侵蚀）等滤镜以产生更真实的地貌演化效果；随后可回到本设备或其它噪声/混合设备加入局部细节。构建大型或可平铺的高度场时，应注意 Feature Scale 与项目尺寸的匹配，以及后续输出与导出（tiling / border handling）策略。社区实践表明，将 Shape Guide 与 Shapes/Mask 配合可以在控制地形位置与形态方面获得最直接、可控的结果。
 
@@ -39,7 +39,7 @@ $$
 在 Advanced Perlin 设备中，fBm 被用于生成具有多层次的细节的噪波，它能够在保持整体连贯性的同时，引入逐层细化的纹理细节。
 
 ---
-## **Ports：**
+## Ports：
 - **Inputs**
 	- **\[Opt\] \<形状导量\>Shaping Guide (Heightfield)**
 	- **\[Opt\] \<畸变导量\>Distortion Guide (Heightfield)**
@@ -53,13 +53,13 @@ $$
 - **Mask**
 
 ---
-## **Placement & Transform:**
-- **Scope**
+## Placement & Transform:
+- **Placement**
 - **Position**
 - **Rotation**
 
 ---
-## **Parameters:**
+## Parameters:
 - **\[P\] slider : \<特征尺度\>Feature Scale : Distance{1m~1024km}**   
 	控制fBm过程中顶级噪波特征的空间尺度，数值越大，生成的地形越宽广，纹理越粗旷。
 - **dropdown : \<样式\>Style : enum{0~8}**  

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/zh/device/generator/【Device】Basic Noise.md",
+                "file": "docs/zh/device/generator/【Device】Voronoi.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "【Device】Basic Noise"
+              "title": "【Device】Voronoi"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 360.5086555480957
   },
   "right": {
     "id": "e0d65b67952ad894",
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/zh/device/generator/【Device】Basic Noise.md",
+                "file": "docs/zh/device/generator/【Device】Advanced Perlin.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "【Device】Basic Noise 的反向链接列表"
+              "title": "【Device】Advanced Perlin 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/zh/device/generator/【Device】Basic Noise.md",
+                "file": "docs/zh/device/generator/【Device】Advanced Perlin.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "【Device】Basic Noise 的出链列表"
+              "title": "【Device】Advanced Perlin 的出链列表"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/zh/device/generator/【Device】Basic Noise.md",
+                "file": "docs/zh/device/generator/【Device】Advanced Perlin.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "【Device】Basic Noise 的大纲"
+              "title": "【Device】Advanced Perlin 的大纲"
             }
           }
         ]
@@ -171,27 +171,39 @@
   },
   "active": "40ba5ac073262898",
   "lastOpenFiles": [
-    "docs/zh/device/generator/【Device】Advanced Perlin.md",
+    "_site/zh/device/generator/voronoi.html",
+    "docs/zh/device/generator/【Device】Tiled File Input.md",
+    "docs/zh/device/generator/【Device】Voronoi.md",
+    "_site/zh/device/generator/tiled-file-input.html",
+    "docs/zh/device/generator/【Device】Shapes.md",
+    "_site/zh/device/generator/shapes.html",
+    "docs/zh/device/generator/【Device】Radial Grad.md",
+    "_site/zh/device/generator/radial-grad.html",
+    "docs/zh/device/generator/【Device】Material.md",
+    "_site/zh/device/generator/material.html",
+    "docs/zh/device/generator/【Device】Library Input.md",
+    "_site/zh/device/generator/library-input.html",
+    "docs/zh/device/generator/【Device】Gradient.md",
+    "_site/zh/device/generator/gradient.html",
+    "docs/zh/device/generator/【Device】File Input.md",
+    "_site/zh/device/generator/file-input.html",
+    "docs/zh/device/generator/【Device】Constant.md",
     "docs/zh/device/generator/【Nevigation】生成器 ~ Generator.md",
-    "docs/zh/device/【Nevigation】设备 ~ Device.md",
+    "docs/zh/concept/【Nevigation】概念 ~ Concept.md",
+    "docs/zh/device/generator/【Device】Advanced Perlin.md",
     "docs/zh/device/generator/【Device】Basic Noise.md",
+    "docs/zh/device/generator/【Device】Color.md",
+    "docs/zh/device/【Nevigation】设备 ~ Device.md",
+    "_site/zh/device/generator/constant.html",
+    "_site/zh/device/generator/color.html",
     "_includes/field-ver-tag.html",
     "docs/zh/diction/【Diction】设备结构的形式化描述方法 ~ Formal Description Method for Device Structure.md",
     "docs/zh/diction/【Diction】标题命名规范 ~ Naming Conventions for Titles.md",
     "docs/zh/【Navigation】主导航 ~ Main Navigation.md",
-    "_includes/inline-ver-tag.html",
-    "_includes/ver-tag.html",
     "docs/zh/concept/【Concept】工作流 ~ Workflow.md",
     "docs/zh/concept/【Concept】设备 ~ Device.md",
-    "_includes/version-inline-tag.html",
-    "_includes/version-tag.html",
-    "_includes/version_tag.html",
-    "_site/zh/device/generator/basic-noise.html",
-    "_site/docs/zh/device/generator/【Device】Basic Noise.html",
     "_site/docs/zh/device/generator/【Device】Basic Noise.md",
     "_site/docs/zh/device/generator/未命名.md",
-    "_site/docs/zh/device/generator",
-    "_site/docs/zh/device",
     "_site/docs/zh/diction/【Diction】设备结构的形式化描述方法 ~ Formal Description Method for Device Structure.md",
     "_site/docs/zh/diction/【Diction】标题命名规范 ~ Naming Conventions for Titles.md",
     "_site/docs/zh/concept/【Concept】fBM 分型布朗运动 ~ fBm the Fractional Brownian Motion.md",
@@ -204,17 +216,6 @@
     "_site/assets/images/advanced_perlin.gallery3.png",
     "_site/assets/images/advanced_perlin.gallery2.png",
     "_site/assets/images/advanced_perlin.gallery1.png",
-    "_site/assets/images/advanced_perlin.artifacts.png",
-    "_site/docs/zh/【Navigation】主导航 ~ Main Navigation.md",
-    "_site/README.md",
-    "_site/docs/zh/device/generator/【Nevigation】生成器 ~ Generator.md",
-    "docs/zh/concept/【Nevigation】概念 ~ Concept.md",
-    "docs/zh/concept/【Concept】fBM 分型布朗运动 ~ fBm the Fractional Brownian Motion.md",
-    "{{.md",
-    "_site/{{.md",
-    "_site/docs/zh/concept/【Concept】工作流 ~ Workflow.md",
-    "_site/docs/zh/concept/未命名.md",
-    "index.md",
-    "_site/docs/zh/concept/【Nevigation】概念 ~ Concept.md"
+    "_site/assets/images/advanced_perlin.artifacts.png"
   ]
 }

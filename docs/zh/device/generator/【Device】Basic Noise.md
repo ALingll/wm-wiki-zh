@@ -10,8 +10,12 @@ permalink: /zh/device/generator/basic-noise
 > Create noise texture using perlin noise.
 > 使用柏林噪波创建的噪波纹理。
 
+**Basic Noise** 是一个基于柏林噪声的轻量的柏林噪波生成器，它拥有较为简洁的参数。关于柏林噪波和分形布朗运动，参见 [Advanced Perlin]({{site.baseurl}}/zh/device/generator/advanced-perlin)。它的可定制性弱于 Advanced Perlin。
+
+{%include inline-ver-tag.html desc="与 Advanced Perlin 相比，它的绝大多数参数都支持空间参数，这使得用户可以通过在参数端口输入空间参数来使生成的噪声具有高度可控的空间局部特征。" ver="AP 起" %}
+
 ---
-## **Ports：**
+## Ports：
 - **Inputs**
 	- {% include ver-tag.html 
 		title="[Opt] <固体噪声>Solid Noise (Heightfield)" 
@@ -26,13 +30,13 @@ permalink: /zh/device/generator/basic-noise
 - **Mask**
 
 ---
-## **Placement & Transform:**
-- **Scope**
+## Placement & Transform:
+- **Placement**
 - **Position**
 - **Rotation**
 
 ---
-## **Parameters:**
+## Parameters:
 - **{% include inline-ver-tag.html desc="[P]" ver="AP 前"%}{%include inline-ver-tag.html desc="[P S]" ver="AP 起" %} slider : \<特征尺度\>Feature Scale : Distance{1m~1024km}**   
 	控制fBm过程中顶级噪波特征的空间尺度，数值越大，生成的地形越宽广，纹理越粗旷。
 - **group : \<分型特征\>Fractal Character**
@@ -44,7 +48,7 @@ permalink: /zh/device/generator/basic-noise
 			尖锐的不连续性遍布整个地形的各个尺度；看起来像地形中的山脊和脊椎。
 		- **enum(2) : \<波涛\>Billowy**  
 			与【Ridged】相反，产生的地形具有块状的外观，整个地形带有尖锐的凹陷折痕。
-	- **slider : \<持续性\>Persistence : float{0~0.75}**  
+	- **{%include inline-ver-tag.html desc="[S]" ver="AP 起" %} slider : \<持续性\>Persistence : float{0~0.75}**  
 		控制fBm过程中每层噪波振幅的衰减程度，值越高，细节保持越多，层次越明显。
 	- **\[A\] slider : \<阶数\>Octaves : int{0~24}**  
 		控制fBm过程中噪波叠加的层数，层数越多，地形层次越丰富；置0时将自动分配合适的阶数。
@@ -63,9 +67,9 @@ permalink: /zh/device/generator/basic-noise
 {% endcapture %}
 {% include field-ver-tag.html field=vertical_field ver="WM 3016" %}
 - **group : \<高程控制\>Evaluation Control**
-	- **slider : \<中位高程\>Middle elevation : Elevation**  
+	- **{%include inline-ver-tag.html desc="[S]" ver="AP 起" %} slider : \<中位高程\>Middle elevation : Elevation**  
 		设置噪波生成高程的中位数，更改此值将生成主要位于较低或较高高程的地形。
-	- **slider : \<陡峭度\>Steepness : float{0.005~0.995}**  
+	- **{%include inline-ver-tag.html desc="[S]" ver="AP 起" %} slider : \<陡峭度\>Steepness : float{0.005~0.995}**  
 		控制噪波地形起伏的陡峭程度，低值会产生更平坦的地形；高值将产生陡峭的悬崖。
     {% capture vertical_field %}
 	- **dropdown : \<映射到\>Scale to : enum{0~2}**   
@@ -76,11 +80,19 @@ permalink: /zh/device/generator/basic-noise
 	        使用指定的范围。
 	    - **enum(2) : \<特征尺度 & 坡度\>Feature Scale & Slope**   
 	        使用指定的坡度范围。
-	- **slider : \<高程下界\>Elevation Base : Elevation : visible(Scale to=1|2)**   
+	- **\[S\] slider : \<高程下界\>Elevation Base : Elevation : visible(Scale to=1|2)**   
 		指定输出高度场的高程最小值。
-	- **slider : \<高程上界\>Elevation Max : Elevation : visible(Scale to=1)**   
+	- **\[S\] slider : \<高程上界\>Elevation Max : Elevation : visible(Scale to=1)**   
 		指定输出高度场的高程最大值（注：当作为空间参数输入时可与 Angle 共同作用）。
-	- **slider : \<坡度\>Slope : Angle{0°~45°} : visible(Scale to=2)**   
+	- **\[S\] slider : \<坡度\>Slope : Angle{0°~45°} : visible(Scale to=2)**   
 		指定输出高度场的坡度值（注：当作为空间参数输入时可与 Elevation Max 共同作用）。
 {% endcapture %}
-{% include field-ver-tag.html field=vertical_field ver="AP"%}
+{% include field-ver-tag.html field=vertical_field ver="AP 起"%}
+
+---
+## 历史版本
+
+- WM 2.x
+- WM 3016：新的，简洁的柏林噪波生成器；
+- AP：添加了固体噪声输入和空间参数；
+- HR：改进了性能；

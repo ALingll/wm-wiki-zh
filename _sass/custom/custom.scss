@@ -1,14 +1,21 @@
 
 
-@media (min-width: 66.5rem) {
+@media (min-width: 90rem) {
   .main {
-    margin-left: max(5rem, (100% - 66.5rem) / 2 + 5rem) !important;
+    margin-left: max(16.5rem, (100% - 90rem) / 2 + 16.5rem) !important;
     max-width: 1200px;
   }
 }
 
-@media (min-width: 66.5rem) {
+@media (min-width: 90rem) {
     .side-bar {
-        max-width: 15rem ;
+        width: calc((100% - 90rem) / 2 + 16.5rem);
+        min-width: 16.5rem;
     }
+}
+
+@media (max-width: 66.5rem) {
+  .side-bar + .main .toc {
+    display: none !important;
+  }
 }

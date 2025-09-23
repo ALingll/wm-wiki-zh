@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Just the Docs",
+      "type": "pwa-node",
+      "request": "launch",
+      "program": "${workspaceFolder}",
+      "preLaunchTask": "serve jekyll"
+    }
+  ]
+}
